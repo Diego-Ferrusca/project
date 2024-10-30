@@ -23,6 +23,9 @@ target 'project' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
+   # Asegúrate de que react-native-reanimated esté aquí
+  pod 'RNReanimated', :path => '../node_modules/react-native-reanimated'
+
   target 'projectTests' do
     inherit! :complete
     # Pods for testing

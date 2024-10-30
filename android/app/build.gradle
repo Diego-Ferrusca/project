@@ -116,4 +116,8 @@ dependencies {
     } else {
         implementation jscFlavor
     }
+
+    // Agrega aquí las dependencias de react-native-reanimated
+    // implementation 'com.swmansion.reanimated:react-native-reanimated:3.15.4' // Asegúrate de que la versión sea correcta
 }
+apply from: file("../../node_modules/react-native-vector-icons/fonts.gradle")
