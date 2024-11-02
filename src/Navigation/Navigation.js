@@ -1,13 +1,14 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createDrawerNavigator } from '@react-navigation/drawer';
+import { createDrawerNavigator, DrawerContentComponentProps } from '@react-navigation/drawer';
 import Icon from 'react-native-vector-icons/Ionicons'; // Asegúrate de tener esta librería instalada
 import 'react-native-gesture-handler'; // Importar esto para el manejo de gestos
 import { useNavigation } from '@react-navigation/native';
 
 import HomeScreen from '../screens/HomeScreen';
 import SettingsScreen from '../screens/SettingsScreen';
+import CustomDrawerContent from './CustomDrawerContent';
 // Crea el Drawer Navigator
 
 
@@ -31,12 +32,17 @@ const Navigation = () => {
         headerTintColor: 'white',
         headerTitleAlign: 'center',
         // drawerType: 'slide',
-      }} >
+      }} 
+      drawerContent={(props) => <CustomDrawerContent {...props} />}
+      >
           <Drawer.Screen 
             name="Home" 
             component={HomeScreen} 
             options={{  
-              drawerIcon: () => <Icon name="home" size={24} color="black" />,
+              drawerIcon: () => <Icon name="home" size={24} color="white" />,
+              drawerLabel: () => (
+                <Text style={{ color: 'white' }}>Home</Text> // Estilo para el nombre "Home"
+              ),
               headerTitle: () => (
                 <View
                   style={{
@@ -55,7 +61,10 @@ const Navigation = () => {
             name="Settings" 
             component={SettingsScreen} 
             options={{
-              drawerIcon: () => <Icon name="settings" size={24} color="black" />,
+              drawerIcon: () => <Icon name="settings" size={24} color="white" />,
+              drawerLabel: () => (
+                <Text style={{ color: 'white' }}>Settings</Text> // Estilo para el nombre "Home"
+              ),
               headerTitle: () => (
                 <View
                   style={{
